@@ -10,7 +10,7 @@ create table winner_team(
 	id_team int primary key auto_increment not null,
     team_name varchar(50) not null,
     team_country varchar(50) not null,
-    titles_count int not null
+    team_foundation_date date not null
 );
 select * from winner_team;
 
@@ -34,28 +34,28 @@ create table season_league(
 );
 select * from season_league;
 
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Real Madrid', 'Espanha', 13); # 1
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Benfica', 'Portugal', 2); # 2
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Milan', 'Itália', 7);	# 3
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Internazionale', 'Itália', 3);	# 4
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Celtic', 'Escócia', 1); # 5
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Manchester United', 'Inglaterra', 3); # 6
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Feyenoord', 'Holanda', 1);	# 7
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Ajax', 'Holanda', 1); # 8
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Bayern Munich', 'Alemanha', 5); # 9
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Liverpool', 'Inglaterra', 5); # 10
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Nottingham Forest', 'Inglaterra', 2); # 11
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Aston Villa', 'Inglaterra', 1); # 12
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Hamburg', 'Alemanha', 1); # 13
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Juventus', 'Itália', 2); # 14
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Steaua București', 'Romênia', 1); # 15
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Porto', 'Portugal', 1); # 16
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('PSV Eindhoven', 'Holanda', 1); # 17
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Red Star Belgrade', 'Iugoslávia', 1); # 18
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Barcelona', 'Espanha', 5); # 19
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Olympique de Marseille', 'França', 1); # 20
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Borussia Dortmund', 'Alemanha', 1); # 21
-INSERT INTO winner_team (team_name, team_country, titles_count) values ('Chelsea', 'Inglaterra', 1); # 22
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Real Madrid', 'Espanha', '1902-3-06'); # 1
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Benfica', 'Portugal', '1904-2-28'); # 2
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Milan', 'Itália', '1899-12-16');	# 3
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Internazionale', 'Itália', '1908-3-09');	# 4
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Celtic', 'Escócia', '1887-11-06'); # 5
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Manchester United', 'Inglaterra', '1878-3-05'); # 6
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Feyenoord', 'Holanda', '1908-07-19');	# 7
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Ajax', 'Holanda', '1900-3-18'); # 8
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Bayern Munich', 'Alemanha', '1900-2-27'); # 9
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Liverpool', 'Inglaterra', '1892-6-03'); # 10
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Nottingham Forest', 'Inglaterra', '1865-9-02'); # 11
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Aston Villa', 'Inglaterra', '1874-11-21'); # 12
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Hamburg', 'Alemanha', '1887-09-29'); # 13
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Juventus', 'Itália', '1897-11-01'); # 14
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Steaua București', 'Romênia', '1947-6-07'); # 15
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Porto', 'Portugal', '1893-09-28'); # 16
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('PSV Eindhoven', 'Holanda', '1913-08-31'); # 17
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Red Star Belgrade', 'Iugoslávia', '1945-3-04'); # 18
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Barcelona', 'Espanha', '1899-11-29'); # 19
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Olympique de Marseille', 'França', '1899-08-31'); # 20
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Borussia Dortmund', 'Alemanha', '1909-12-19'); # 21
+INSERT INTO winner_team (team_name, team_country, team_foundation_date) values ('Chelsea', 'Inglaterra', '1905-3-10'); # 22
 
 INSERT INTO stadiums (stadium_name, stadium_country, final_count) values ('Parc des Princes', 'França', 3); # 1
 INSERT INTO stadiums (stadium_name, stadium_country, final_count) values ('Santiago Bernabéu Stadium', 'Espanha', 4); # 2
@@ -168,9 +168,24 @@ on id_team = league_winner
 and team_name = 'Milan';
 
 
+select month(final_date) as mes, count(id_season) from season_league group by mes;
 
+select 
+	final_date 
+from season_league 
+where month(final_date) = 8;
 
+use champions_league_and_teams;
 
+select 
+	count(*),  
+    team_name
+from season_league 
+inner join winner_team 
+on league_winner = id_team
+group by league_winner 
+having count(*) >= 2
+order by count(*) desc;
 
 
 
